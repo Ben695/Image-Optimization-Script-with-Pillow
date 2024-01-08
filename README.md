@@ -42,7 +42,7 @@ The script will prompt you to provide necessary information, including input and
 
 ## Contributors
 
-- Benjamin - [GitHub]([https://github.com/benjamin](https://github.com/Ben695))
+- Benjamin - https://github.com/Ben695
 
 ## License
 
