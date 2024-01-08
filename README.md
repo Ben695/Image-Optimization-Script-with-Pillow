@@ -2,7 +2,9 @@
 
 ## Overview
 
-Welcome to the Image Optimization Script with Pillow! This Python script is designed to streamline the process of resizing and compressing images using the powerful Pillow library. This tool simplifies the optimization of your image assets, ensuring a balance between quality and performance.
+Welcome to the Image Optimization Script with Pillow! This Python script is crafted to streamline the process of resizing and compressing images using the powerful Pillow library. This tool simplifies the optimization of your image assets, ensuring a balance between quality and performance.
+
+The backstory? One day, faced with the task of converting over 500 images to the WebP format for a website, I found myself in a time-consuming ordeal. That's when the idea struck me to create this script, hoping it could be of service to others looking to simplify the image optimization process. So, dive in, and may this script make your life easier, just as it did for me! 😎🚀
 
 ## Features
 
