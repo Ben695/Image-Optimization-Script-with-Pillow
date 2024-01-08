@@ -88,7 +88,7 @@ temps_attente = int(nombre_images * 0.8)
 # Affiche un message sympa avec le temps d'attente
 print()
 print("-"*60)
-print(f"Chill mec, ça va prendre environ {temps_attente} secondes. Grab some ☕️ (Le temps d'attente peut varier en fonction de la puissance de ton PC.)")
+print(f"Chill mec, ça va prendre environ {temps_attente} secondes pour tes {nombre_images} images. Grab some ☕️ (Le temps d'attente peut varier en fonction de la puissance de ton PC.)")
 print("-"*60)
 
 # Boucle à travers les fichiers du dossier d'entrée
@@ -99,7 +99,7 @@ for filename in os.listdir(config['input_folder']):
 
         # Vérifie si l'image doit être redimensionnée
         if response == 'oui':
-            img.thumbnail((new_width, new_height), Image.LANCZOS)
+            img = img.resize((new_width, new_height), Image.LANCZOS)
         elif img.width > max_width or img.height > max_height:
             # Redimensionne l'image en conservant son ratio en utilisant LANCZOS
             img.thumbnail((max_width, max_height), Image.LANCZOS)
@@ -117,5 +117,5 @@ for filename in os.listdir(config['input_folder']):
 time.sleep(temps_attente)
 
 print("-"*60)
-print("Toutes les images ont été redimensionnées, compressées et converties en WebP avec succès ! Tu peux retrouver les versions optimisées dans le dossier 'img-optimize' situé dans le répertoire que tu as spécifié précédemment.")
+print("Les {nombre_images} images ont été redimensionnées, compressées et converties en WebP avec succès ! Tu peux retrouver les versions optimisées dans le dossier 'img-optimize' situé dans le répertoire que tu as spécifié précédemment.")
 print("-"*60)
