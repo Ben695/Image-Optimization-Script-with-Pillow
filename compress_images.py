@@ -117,5 +117,5 @@ for filename in os.listdir(config['input_folder']):
 time.sleep(temps_attente)
 
 print("-"*60)
-print("Les {nombre_images} images ont été redimensionnées, compressées et converties en WebP avec succès ! Tu peux retrouver les versions optimisées dans le dossier 'img-optimize' situé dans le répertoire que tu as spécifié précédemment.")
+print("Les images ont été redimensionnées, compressées et converties en WebP avec succès ! Tu peux retrouver les versions optimisées dans le dossier 'img-optimize' situé dans le répertoire que tu as spécifié précédemment.")
 print("-"*60)
