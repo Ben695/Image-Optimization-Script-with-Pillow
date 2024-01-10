@@ -29,10 +29,14 @@ def normalize_path(path):
 def update_paths():
     print()
     input_folder = normalize_path(input("Chemin du dossier contenant les images à compresser : "))
-    
+
     # Demande le chemin du dossier de sortie
-    output_folder = os.path.join(input_folder, "img-optimize")
-    
+    change_output_folder = get_user_response("Voulez-vous changer le dossier de sortie ? (oui/non): ", ['oui', 'non'])
+    if change_output_folder == 'oui':
+        output_folder = normalize_path(input("Chemin du dossier de sortie : "))
+    else:
+        output_folder = os.path.join(input_folder, "img-optimize")
+
     return {'input_folder': input_folder, 'output_folder': output_folder}
 
 # Vérifie si le fichier de configuration existe
@@ -79,7 +83,19 @@ if response == 'oui':
 
 # Demande à l'utilisateur le pourcentage de compression
 print()
-compression_percentage = int(input("Sur quelle qualité de compression veux-tu (en pourcentage) ? (1-100): "))
+valid_percentage = False
+while not valid_percentage:
+    compression_percentage = input("Sur quelle qualité de compression veux-tu (en pourcentage) ? ")
+    if not compression_percentage.isdigit():
+        print()
+        print("Oops! Le pourcentage de compression doit être un nombre entier. Réessaie.")
+    elif int(compression_percentage) < 1 or int(compression_percentage) > 100:
+        print()
+        print("Oops! Le pourcentage de compression doit être compris entre 1 et 100. Réessaie.")
+    else:
+        valid_percentage = True
+
+compression_percentage = int(compression_percentage)
 
 # Calcul du temps d'attente en fonction du nombre d'images
 nombre_images = len([f for f in os.listdir(config['input_folder']) if f.endswith((".jpg", ".jpeg", ".png"))])
